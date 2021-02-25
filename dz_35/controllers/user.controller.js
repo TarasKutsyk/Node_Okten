@@ -9,7 +9,7 @@ module.exports = {
 
             if (!req.noQuery) {
                 const queryParams = req.query;
-                users = users.filter(user => userService.doesMatchQueryParams(user, queryParams));
+                users = users.filter((user) => userService.doesMatchQueryParams(user, queryParams));
             }
 
             res.json(users);
@@ -40,4 +40,4 @@ module.exports = {
             res.status(errorCodes.DATABASE_ERROR).json(`${errorMsg.DATABASE_WRITE_ERROR}: ${e.message}`);
         }
     }
-}
+};

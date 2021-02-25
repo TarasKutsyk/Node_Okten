@@ -1,13 +1,13 @@
 const fse = require('fs-extra');
 const path = require('path');
 
-const usersPath = path.join(process.cwd(), 'database', 'users.json')
+const usersPath = path.join(process.cwd(), 'database', 'users.json');
 
 module.exports = {
-    getAllUsers: async () => await fse.readJson(usersPath),
+    getAllUsers: () => fse.readJson(usersPath),
 
     addNewUser: async (user) => {
-        let users = await fse.readJson(usersPath);
+        const users = await fse.readJson(usersPath);
         users.push(user);
 
         fse.writeJson(usersPath, users);
@@ -16,7 +16,7 @@ module.exports = {
     doesUserExist: async (properties) => {
         const users = await fse.readJson(usersPath);
 
-        for (let key in properties) {
+        for (const key in properties) {
             if (users.some(user => user[key] === properties[key])) {
                 return true;
             }
@@ -42,9 +42,9 @@ module.exports = {
     },
 
     deleteUser: async (id) => {
-        let users = await fse.readJson(usersPath);
+        const users = await fse.readJson(usersPath);
         users.splice(id, 1);
 
         fse.writeJson(usersPath, users);
     }
-}
+};

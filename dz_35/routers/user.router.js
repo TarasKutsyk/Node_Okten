@@ -2,7 +2,6 @@ const router = require('express').Router();
 const userController = require('../controllers/user.controller');
 const userMiddleware = require('../middlewares/user.middleware');
 
-
 router.get('/', userMiddleware.areParamsValid, userController.getUsers);
 router.post('/', userMiddleware.isUserValid, userController.addNewUser);
 router.delete('/', userMiddleware.isUserIdValid, userController.deleteUser);

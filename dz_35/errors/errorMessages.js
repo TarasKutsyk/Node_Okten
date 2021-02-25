@@ -17,4 +17,4 @@ module.exports = {
         en: 'User ID is invalid',
         ua: 'ID користувача не валідне'
     },
-}
+};
