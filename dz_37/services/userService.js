@@ -8,6 +8,8 @@ module.exports = {
 
     getUserById: (id) => User.findById(id),
 
+    getUserByEmail: (email) => User.findOne({email}),
+
     addNewUser: (user) => User.create(user),
 
     deleteUser: (id) => User.findByIdAndDelete(id, (err) => {

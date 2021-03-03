@@ -1,18 +1,15 @@
-const errorMsg = require('../errors/errorMessages');
-const errorCodes = require('../errors/errorCodes');
+const errorMsg = require('../constants/errors/errorMessages');
+const errorCodes = require('../constants/errors/errorCodes');
 const userService = require('../services/userService');
+const userValidator = require('../validators/user/create_user_validator');
 
 module.exports = {
     isUserValid: (req, res, next) => {
-        const {name, email, password, preferL = 'en'} = req.body;
-
         try {
-            if (!(name && email && password)) {
-                throw new Error(errorMsg.EMPTY_FIELD[preferL]);
-            }
+            const { error } = userValidator.validate(req.body);
 
-            if (password.length < 6) {
-                throw new Error(errorMsg.TOO_WEAK_PASSWORD[preferL]);
+            if (error) {
+                throw new Error(error.details[0].message);
             }
 
             next();
@@ -40,6 +37,7 @@ module.exports = {
     areParamsValid: async (req, res, next) => {
         const {preferL = 'en'} = req.body;
         const queryParams = req.query;
+
         req.noQuery = Object.keys(queryParams).length === 0;
         
         try {

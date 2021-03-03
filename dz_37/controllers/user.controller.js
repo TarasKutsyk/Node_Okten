@@ -1,6 +1,7 @@
-const errorCodes = require('../errors/errorCodes');
-const errorMsg = require('../errors/errorMessages');
+const errorCodes = require('../constants/errors/errorCodes');
+const errorMsg = require('../constants/errors/errorMessages');
 const userService = require('../services/userService');
+const passwordHasher = require('../auxiliary/passwordHasher');
 
 module.exports = {
     getUsers: async (req, res) => {
@@ -26,10 +27,12 @@ module.exports = {
     },
 
     addNewUser: async (req, res) => {
-        const user = req.body;
+        const {password} = req.body;
 
         try {
-            await userService.addNewUser(user);
+            const hashPassword = await passwordHasher.hash(password);
+
+            await userService.addNewUser({ ...req.body, password: hashPassword });
 
             res.json('User added!');
         } catch (e) {

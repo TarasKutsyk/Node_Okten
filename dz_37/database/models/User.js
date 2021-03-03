@@ -1,5 +1,7 @@
 const {Schema, model} = require('mongoose');
 
+const {USER} = require('../../constants/databaseTables');
+
 const userScheme = new Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
@@ -18,4 +20,4 @@ userScheme
         this.populate('userProducts');
     });
 
-module.exports = model('User', userScheme);
+module.exports = model(USER, userScheme);

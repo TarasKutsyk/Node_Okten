@@ -13,7 +13,6 @@ module.exports = {
         en: 'User with such fields does not exists',
         ua: 'Користувача з такими полями не існує'
     },
-
     USER_ALREADY_EXISTS: {
         en: 'User with such an email already exists',
         ua: 'Користувач з такою поштою вже існує'
@@ -22,4 +21,5 @@ module.exports = {
         en: 'User ID is invalid',
         ua: 'ID користувача не валідне'
     },
+    BAD_LOGIN: 'Wrong email or password',
 };
