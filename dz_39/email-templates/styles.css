@@ -1,0 +1,19 @@
+body {
+    font-family: "Calibri Light";
+}
+
+header {
+    background-color: cornflowerblue;
+}
+
+footer {
+    background-color: blueviolet;
+}
+
+.welcome {
+    background-color: yellow;
+}
+
+.goodbye {
+    background-color: #ff2d25;
+}

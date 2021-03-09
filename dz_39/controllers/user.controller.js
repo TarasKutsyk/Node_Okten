@@ -1,5 +1,7 @@
 const errorCodes = require('../constants/errors/errorCodes');
 const errorMsg = require('../constants/errors/errorMessages');
+const emailActions = require('../constants/emailActions');
+const mailService = require('../services/mailService');
 const successMsg = require('../constants/successMessages');
 const userService = require('../services/userService');
 const passwordHasher = require('../auxiliary/passwordHasher');
@@ -28,12 +30,14 @@ module.exports = {
     },
 
     addNewUser: async (req, res) => {
-        const {password} = req.body;
+        const {password, email, name} = req.body;
 
         try {
             const hashPassword = await passwordHasher.hash(password);
 
             await userService.addNewUser({ ...req.body, password: hashPassword });
+
+            await mailService.sendMail(email, emailActions.WELCOME, {userName: name});
 
             res.json(successMsg.USER_ADDED);
         } catch (e) {
@@ -41,7 +45,7 @@ module.exports = {
         }
     },
 
-    deleteUser: (req, res) => {
+    deleteUser: async (req, res) => {
         const {userId} = req.params;
         const {preferL = 'en'} = req.body;
 
@@ -49,6 +53,9 @@ module.exports = {
             if (userId !== req.user.id) {
                 throw new Error(errorMsg.BAD_TOKEN[preferL]);
             }
+
+            const user = await userService.getUserById(userId);
+            await mailService.sendMail(user.email, emailActions.GOODBYE, {userName: user.name});
 
             userService.deleteUser(userId);
 

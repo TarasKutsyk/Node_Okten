@@ -1,11 +1,12 @@
 const dotenv = require('dotenv');
+
+dotenv.config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
 const config = require('./config');
-
-dotenv.config();
 
 _connectDB();
 

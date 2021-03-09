@@ -25,10 +25,10 @@ module.exports = {
         en: 'You are unauthorised to visit this page',
         ua: 'Ви не маєте права відвідувати цю сторінку'
     },
-
     BAD_REFRESH_TOKEN: {
         en: 'Refresh token has expired or does not exist',
         ua: 'Токен оновлення прострочений або не існує'
     },
+    BAD_EMAIL: 'Your email is invalid',
     BAD_LOGIN: 'Wrong email or password',
 };
