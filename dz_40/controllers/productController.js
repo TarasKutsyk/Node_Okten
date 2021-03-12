@@ -24,7 +24,7 @@ module.exports = {
                 newProduct._id,
                 'photo'
             );
-            await productService.updateProductById(newProduct._id, { docs: photosUploadPaths });
+            await productService.updateProductById(newProduct._id, { photos: photosUploadPaths });
 
             res.json(successMsg.PRODUCT_ADDED);
         } catch (e) {
