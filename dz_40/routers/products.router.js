@@ -6,6 +6,6 @@ const productController = require('../controllers/productController');
 router.post('/',
     fileMiddleware.checkFiles,
     fileMiddleware.checkProductsFiles,
-    productController.addNewUser);
+    productController.addNewProduct);
 
 module.exports = router;

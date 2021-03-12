@@ -3,4 +3,5 @@ module.exports = {
     fileUploadService: require('./fileUploadService'),
     mailService: require('./mailService'),
     userService: require('./userService'),
+    productService: require('./productService'),
 };
