@@ -1,0 +1,4 @@
+module.exports = {
+    ACCESS_TOKEN_EXPIRATION_TIME: '30m',
+    REFRESH_TOKEN_EXPIRATION_TIME: '30d',
+};

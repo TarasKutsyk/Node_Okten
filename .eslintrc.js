@@ -16,14 +16,6 @@ module.exports = {
     plugins: [],
     rules: {
         'arrow-parens': 0,
-        'array-bracket-newline': [
-            'error',
-            { minItems: 2 },
-        ],
-        'array-element-newline': [
-            'error',
-            { minItems: 2 },
-        ],
         'arrow-body-style': 'error',
         'block-scoped-var': 'error',
         complexity: 'error',
@@ -120,6 +112,9 @@ module.exports = {
         'no-void': 'error',
         'object-curly-newline': 0,
         'object-curly-spacing': 0,
+        'prefer-object-spread': 0,
+        'array-element-newline': 0,
+        'array-bracket-newline': 0,
         'object-shorthand': 'error',
         'one-var': [
             'error',
