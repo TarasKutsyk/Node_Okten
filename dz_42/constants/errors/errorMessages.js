@@ -15,6 +15,10 @@ module.exports = {
         en: 'User with such fields does not exists',
         ua: 'Користувача з такими полями не існує'
     },
+    USERS_NOT_FOUND: {
+        en: 'Users with such fields do not exists',
+        ua: 'Користувачів з такими полями не існує'
+    },
     PRODUCT_NOT_FOUND: {
         en: 'Product with such fields does not exists',
         ua: 'Товару з такими полями не існує'

@@ -17,7 +17,13 @@ module.exports = {
 
     getAllUsers: async (req, res, next) => {
         try {
+            const {preferL = 'en'} = req.body;
+
             const users = await mySQL_userService.findAllUsers(req.query);
+
+            if (!users.length) {
+                throw new ErrorHandler(errorMsg.USERS_NOT_FOUND[preferL], errorCodes.BAD_REQUEST, customErrorCodes.NOT_FOUND);
+            }
 
             res.json(users);
         } catch (e) {
