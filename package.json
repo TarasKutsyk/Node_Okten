@@ -18,20 +18,21 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "express-handlebars": "^5.2.1",
-    "nodemon": "^2.0.6",
-    "husky": "^4.3.0",
+    "@types/email-templates": "^8.0.2",
+    "@types/express-fileupload": "^1.1.6",
+    "@types/fs-extra": "^9.0.8",
+    "@types/nodemailer": "^6.4.0",
+    "@types/sequelize": "^4.28.9",
     "eslint": "^7.14.0",
-    "lint-staged": "^10.5.2",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "@types/nodemailer": "^6.4.0",
-    "@types/email-templates": "^8.0.2",
-    "@types/sequelize": "^4.28.9",
-    "@types/express-fileupload": "^1.1.6",
-    "@types/fs-extra": "^9.0.8"
+    "express-handlebars": "^5.2.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
   },
   "lint-staged": {
     "*.{js, json}": [
